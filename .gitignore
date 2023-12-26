@@ -1,3 +1,5 @@
 /env
 /.env
-/__pacache__
+/__pycache__
+/files
+/utils/__pycache__
