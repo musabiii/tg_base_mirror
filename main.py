@@ -7,7 +7,8 @@ load_dotenv() # reload env params from .env to environment
 apikey = os.environ.get("API_KEY") # from .env file
 
 bot = telebot.TeleBot(apikey)
-workdir = os.path.abspath("./");
+workdir = os.getcwd()
+
 
 @bot.message_handler(commands=['start'])
 def start_message(message):

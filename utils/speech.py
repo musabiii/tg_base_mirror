@@ -20,6 +20,7 @@ def transcribe_audio(path):
 
 def ogg_to_wav(ogg_file_path):
     try:
+        # Open the file
         data, samplerate = sf.read(ogg_file_path)
         wav_file_path = ogg_file_path + ".wav"
         sf.write(wav_file_path, data, samplerate)
@@ -30,15 +31,12 @@ def ogg_to_wav(ogg_file_path):
 
 
 def ogg_to_text(ogg_file_path):
-    # workdir = os.path.abspath("./");
-    # ogg_file_path = os.path.join(workdir, file_name)
-
     try:
         wav_file_path = ogg_to_wav(ogg_file_path)
-
         txt = transcribe_audio(wav_file_path)
     except:
         txt = "ошибка"
+        return txt
 
     if os.path.exists(wav_file_path):
         os.remove(wav_file_path)
