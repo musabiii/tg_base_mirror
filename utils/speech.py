@@ -36,6 +36,7 @@ def ogg_to_text(ogg_file_path):
         txt = transcribe_audio(wav_file_path)
     except:
         txt = "ошибка"
+        print(txt)
         return txt
 
     if os.path.exists(wav_file_path):

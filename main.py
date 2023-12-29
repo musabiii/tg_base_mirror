@@ -9,27 +9,6 @@ apikey = os.environ.get("API_KEY") # from .env file
 bot = telebot.TeleBot(apikey)
 workdir = os.getcwd()
 
-
-@bot.message_handler(commands=['start'])
-def start_message(message):
-    # bot.send_message(message.chat.id, 'Привет, ты написал мне /start', reply_markup=keyboard1)
-    bot.send_message(message.chat.id, 'Hello my friend',parse_mode='Markdown')
-
-
-@bot.message_handler(commands=['end'])
-def end_message(message):
-    bot.send_message(message.chat.id, 'Возвращайся...')
-    # bot.send_message(message.chat.id, 'Возвращайся...', reply_markup=keyboard1)
-
-@bot.message_handler(content_types=['text'])
-def send_text(message):
-    bot.send_message(message.chat.id, 'Хорошо')
-
-@bot.message_handler(content_types=['sticker'])
-def send_text(message):
-    bot.send_message(message.chat.id, 'стикер')
-
-
 @bot.message_handler(content_types=['voice'])
 def send_text(message):
     file_info = bot.get_file(message.voice.file_id)
